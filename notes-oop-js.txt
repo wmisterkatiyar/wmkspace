@@ -1,3 +1,6 @@
 objects are 
 key : value
-pairs set. value can be property or method.
+pairs set. 
+
+value => can be => a variable/property or function/method or even another object reference.
+
