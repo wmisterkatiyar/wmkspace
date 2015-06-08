@@ -4,3 +4,19 @@ pairs set.
 
 value => can be => a variable/property or function/method or even another object reference.
 
+obj.key is undefined by default
+
+delete obj.key // deletes key
+
+** use STRICT MODE always.
+
+function is, by default, called in reference of its associated object so it gets the value of "this". "this" is a **reference** to current object. but we can bind or call the function for other objects too.
+
+obj1  = { val1: 45, method1: function(){return this.val1;} }
+obj2  = { val1: 56 }
+obj1.method1() // 45
+
+** now we can call the method in reference to other object. **
+
+obj1.method1.call(obj2); //**56**
+
