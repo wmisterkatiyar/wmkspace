@@ -15,9 +15,11 @@ svn has per repo basis conf
 > vi conf/passwd
     [users]
     user_name = password
-open the port for public ip if required : add rule to iptables
-> iptables --append INPUT -p tcp --dport 3690 -j ACCEPT 
+open the port for public ip if required : insert rule to iptables at top
+> iptables -I INPUT -p tcp --dport 3690 -j ACCEPT
+save rules forever
 > /etc/init.d/iptables save
+restart if necessary
 > /etc/init.d/iptables restart
 start server
 > svnserve --daemon --listen-host 0.0.0.0 --root .
