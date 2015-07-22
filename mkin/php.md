@@ -5,6 +5,18 @@ console
 with apache
   virtual host: request header, response with nc, first dns->IP->dir by virtual host, server name, server alias for multiple domain names, directory options, first level security: user for whole apache, 2nd Level: suPHP, user per virtual host
   
+  #port forwarding.
+  LoadModule proxy_module modules/mod_proxy.so
+  LoadModule proxy_http_module modules/mod_proxy_http.so
+  <VirtualHost *:80>
+  ProxyPreserveHost On
+  ProxyRequests Off
+  ServerName myhost.com
+  ServerAlias ww.myhost.com
+  ProxyPass / http://localhost:8080/
+  ProxyPassReverse / http://localhost:8080/
+  </VirtualHost>
+  
   rewrite engine: R=301, L=>last, dont process further rules. rewrite condition
   RewriteEngine On
   RewriteCond %[HTTP_HOST] !^mysite.com$ [NC]
