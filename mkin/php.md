@@ -2,6 +2,19 @@ about
 install
 console
 
+with apache
+  virtual host: request header, response with nc, first dns->IP->dir by virtual host, server name, server alias for multiple domain names, directory options, first level security: user for whole apache, 2nd Level: suPHP, user per virtual host
+  
+  rewrite engine: R=301, L=>last, dont process further rules. rewrite condition
+  RewriteEngine On
+  RewriteCond %[HTTP_HOST] !^mysite.com$ [NC]
+  RewriteRule (.*) http://www.mysite.com/$1 [R=301, L]
+  // flagList: http://httpd.apache.org/docs/2.4/rewrite/flags.html
+  
+  file permissions: chmod -R, chmod a+r, chmod etc.
+
+Notice, Warning, Error, Exception
+
 environment variables / settings
   max executino time, timezone, upload limit, module detection
 
