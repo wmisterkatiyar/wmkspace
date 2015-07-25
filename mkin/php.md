@@ -25,7 +25,12 @@ with apache
   
   file permissions: chmod -R, chmod a+r, chmod etc.
 
-Notice, Warning, Error, Exception
+Parse Error, Notice, Warning, Error, Exception
+  @, try-catch, isset
+    
+php security
+  htmlspecialchars, mysql_escape_string.
+  
 
 environment variables / settings
   max executino time, timezone, upload limit, module detection
@@ -48,7 +53,7 @@ session and cookies
 
 web client inputs
   GET, POST, REQUEST, FILE, User-Agent detection, user ip
-  upload max size, max input time
+  upload max size, max input time, array multiselect, checkbox etc.
   
 array manual
   scalar, vector, array functions, sort, compare, efficiency
@@ -79,3 +84,15 @@ XML processing
 JSON processing
 
 php best practice
+
+PHP MVC Workshop
+  1. Templating in Helpers.php //helpers concept
+  craete a render function that takes template and vars.
+  render($template_name, $template_vars)
+    $path = "views/" . $template_name . "php"
+    if(file_exists($path)) {
+      extract($template_vars)
+      require($path);
+    }
+    index.php = render('header', array('title'=>'my_title')) body render('footer')
+    ob_start(); ob_get_clean();
